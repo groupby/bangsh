@@ -138,7 +138,7 @@ function _run_tests () {
     # Uses `unittest` API to run a test and return whether it passed or failed
     if b.unittest.run_successfuly? "$test_case" 2> "$test_error_msgs"; then
       _display_passing_test
-      echo "$relative_path::$test_case" >> "$passed_tests"
+      echo "$relfiles_to_be_testedative_path::$test_case" >> "$passed_tests"
     else
       _display_failing_test
       echo "$relative_path::$test_case" >> "$failed_tests"

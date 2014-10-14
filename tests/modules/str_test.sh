@@ -25,3 +25,16 @@ function b.test.str_trim () {
   b.unittest.assert_equal "no trim" "$(b.str.trim 'no trim')"
 }
 
+function b.test.str_tolower () {
+    b.unittest.assert_equal "lower" "$(b.str.tolower 'LOWER')"
+    b.unittest.assert_equal "lower" "$(b.str.tolower 'LOwer')"
+    b.unittest.assert_equal "lower" "$(b.str.tolower 'lowER')"
+    b.unittest.assert_equal "lower" "$(b.str.tolower 'lOWer')"
+}
+
+function b.test.str_toupper () {
+    b.unittest.assert_equal "UPPER" "$(b.str.toupper 'UpPer')"
+    b.unittest.assert_equal "UPPER" "$(b.str.toupper 'upper')"
+    b.unittest.assert_equal "UPPER" "$(b.str.toupper 'UPPER')"
+    b.unittest.assert_equal "UPPER" "$(b.str.toupper 'uPPeR')"
+}

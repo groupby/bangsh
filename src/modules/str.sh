@@ -31,3 +31,11 @@ function b.str.trim () {
   [ -z "$arg" ] && read arg
   echo "$arg" | sed -E 's/^[ \t]*//g ; s/[ \t]*$//g'
 }
+
+function b.str.tolower () {
+    echo "$1" | tr '[:upper:]' '[:lower:]'
+}
+
+function b.str.toupper () {
+    echo "$1" | tr '[:lower:]' '[:upper:]'
+}
