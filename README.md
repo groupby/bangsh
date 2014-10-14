@@ -33,14 +33,14 @@ project by typing:
 bang new my_project
 ```
 
+This command will create a directory called `my_project/`. There will be some
+directories which are intended to place some specific files. They are listed below.
+
 # Deleting a project
 
 ```bash
 bang remove my_project
 ```
-
-This command will create a directory called `my_project/`. There will be some
-directories which are intended to place some specific files. They are listed below.
 
 # The "b" namespace
 
