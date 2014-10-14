@@ -32,6 +32,7 @@ function btask.new.run () {
       _create_module_path
       _create_tasks_path
       _create_main_file
+      _copy_bangsh_to_project
     )
   fi
 }
@@ -46,11 +47,15 @@ function _create_tasks_path () {
   touch "$project/tasks/.gitkeep"
 }
 
+function _copy_bangsh_to_project () {
+  cp -r "$_BANG_PATH" "$project/bangsh"
+}
+
 function _create_main_file () {
   local project_name="$(basename "$project")"
   exec >> "$project/$project_name"
 
   echo '#!/usr/bin/env bash'
-  echo "source '$_BANG_PATH/bang.sh'"
+  echo "source 'bangsh/bang.sh'"
   chmod +x "$project/$project_name"
 }
