@@ -32,10 +32,14 @@ function b.str.trim () {
   echo "$arg" | sed -E 's/^[ \t]*//g ; s/[ \t]*$//g'
 }
 
+## Converts a string to lower case
+## @param string - string to be converted
 function b.str.tolower () {
     echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
+## Converts a string to upper case
+## @param string - string to be converted
 function b.str.toupper () {
     echo "$1" | tr '[:lower:]' '[:upper:]'
 }
