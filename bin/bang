@@ -5,6 +5,7 @@ SCRIPT_PATH="$(dirname $0)"
 source "$SCRIPT_PATH/../src/bang.sh"
 
 b.set bang.working_dir "$PWD"
+b.set bang.fixtures "$PWD/fixtures"
 
 cd "$SCRIPT_PATH" > /dev/null
 
