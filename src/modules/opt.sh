@@ -149,6 +149,20 @@ function b.opt.init () {
   done
 }
 
+## Parses the arguments of command line returning the index of the first param
+function b.opt.idx () {
+  local -i i=1
+  for (( ; $i <= $# ; i++ )); do
+    local arg=$(eval "echo \$$i")
+    arg=$(b.opt.alias2opt $arg)
+    if b.opt.is_opt? "$arg"; then
+        echo "${i}"
+    elif b.opt.is_flag? "$arg"; then
+      echo "${i}"
+    fi
+  done
+}
+
 ## Checks for required args... if some is missing, raises an error
 function b.opt.check_required_args() {
   local reqopt="" required_options="$(b.get Bang.Opt.Required)"
