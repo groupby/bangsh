@@ -81,7 +81,7 @@ function b.opt.required_args () {
   local i=""
   if [ $# -gt 0 ]; then
     for i in $(seq 1 $#); do
-      local opt=$(eval "echo \$$i")
+      local opt=${@:i:1}
       opt=$(b.opt.alias2opt "$opt")
       if b.opt.is_opt? "$opt" || b.opt.is_flag? "$opt"; then
         b.set "Bang.Opt.Required" "$(b.get Bang.Opt.Required) $opt"
@@ -130,11 +130,11 @@ function b.opt.show_usage () {
 function b.opt.init () {
   local -i i=1
   for (( ; $i <= $# ; i++ )); do
-    local arg=$(eval "echo \$$i")
+    local arg=${@:i:1}
     arg=$(b.opt.alias2opt $arg)
     if b.opt.is_opt? "$arg"; then
       local ii=$(($i + 1))
-      local nextArg=$(eval "echo \$$ii")
+      local nextArg=${@:ii:1}
       if [ -z "$nextArg" ] || b.opt.is_opt? "$nextArg" || b.opt.is_flag? "$nextArg"; then
         b.raise ArgumentError "Option '$arg' requires an argument."
       else
@@ -145,20 +145,6 @@ function b.opt.init () {
       b.set "Bang.Opt.ParsedFlag" "$(b.get Bang.Opt.ParsedFlag) $arg"
     else
       b.raise ArgumentError "Option '$arg' is not a valid option."
-    fi
-  done
-}
-
-## Parses the arguments of command line returning the index of the first param
-function b.opt.idx () {
-  local -i i=1
-  for (( ; $i <= $# ; i++ )); do
-    local arg=$(eval "echo \$$i")
-    arg=$(b.opt.alias2opt $arg)
-    if b.opt.is_opt? "$arg"; then
-        echo "${i}"
-    elif b.opt.is_flag? "$arg"; then
-      echo "${i}"
     fi
   done
 }
