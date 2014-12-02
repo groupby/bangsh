@@ -1,7 +1,7 @@
 Bang.sh - for easy Shell Scripting
 ==================================
 
-[![Build Status](https://travis-ci.org/ferronrsmith/bangsh.png)](https://travis-ci.org/ferronrsmith/bangsh)
+[![Build Status](https://travis-ci.org/groupby/bangsh.png)](https://travis-ci.org/groupby/bangsh)
 
 This framework is intended to help on easy bash script development. It is totally modularized.
 It helps you developing new Bash Script programs by forcing you to modularize and organize
@@ -13,7 +13,7 @@ You can clone the bang repository in any path. For instance,
 
 ```bash
 cd /usr/local/
-git clone git://github.com/ferronrsmith/bangsh.git
+git clone git://github.com/groupby/bangsh.git
 ```
 
 You can `cd bangsh` and then `bin/bang test`. It will run all test suites.
