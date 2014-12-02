@@ -171,7 +171,7 @@ function b.try.end () {
 }
 
 function b.resolve_path () {
-  local file="$(echo $1 | sed s/\\./\\//g )"
+  local file="${1//.//}"
   shift
   while [ -n "$1" ]; do
     local file_path="$1/$file.sh"
