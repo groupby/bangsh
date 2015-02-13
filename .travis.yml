@@ -1,1 +1,4 @@
-script: 'bin/bang test'
+script: bin/bang test
+notifications:
+  slack:
+    secure: dohLfHDv6pOKaAO7FzE7T5P13LMDsqs3914NuzIDl66qb4xl1uVKCsSq0FUM4Orc5w0GY4KUJPUKfj6smzyP+T7s5M1Ln44qBqYl39vskE6Zli17xMGB1Ob7z36+rxa2qtxvXe5kLpWqezC2N0TUPDE1q+pMhvBC/IN0NZujUhA=
